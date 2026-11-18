@@ -2,25 +2,26 @@
 include 'config.php';
 $pesan = "";
 
+if(isset($_GET['status']) && $_GET['status'] == "registered"){
+    $sukses = "Registrasi berhasil ! Silahkan login";
+}
+
 if (isset($_SESSION['id_user'])) {
-    header("location:dashboard.php");
+    header("Location: dashboard.php");
     exit;
 }
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $username = trim($_POST['username']);
+if (isset($_POST['login'])) {
+    $username = mysqli_real_escape_string($conf, $_POST['username']);
     $password = $_POST['password'];
 
-    $stmt = mysqli_prepare($conf, "SELECT * FROM users WHERE username = ?");
-    mysqli_stmt_bind_param($stmt, "s", $username);
-    mysqli_stmt_execute($stmt);
-    $user = mysqli_fetch_assoc(mysqli_stmt_get_result($stmt));
+    $query = mysqli_query($conf, "SELECT * FROM users WHERE username='$username'");
+    $user = mysqli_fetch_assoc($query);
 
     if ($user && password_verify($password, $user['password'])) {
-        session_regenerate_id(true);
         $_SESSION['id_user'] = $user['id_user'];
         $_SESSION['nama'] = $user['nama'];
-        header("location:dashboard.php");
+        header("Location: dashboard.php");
         exit;
     } else {
         $pesan = "Username atau password salah!";
@@ -28,36 +29,40 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 ?>
 <!DOCTYPE html>
-<html lang="id" data-bs-theme="light">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
     <title>Login</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@6.0.0-alpha.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-B/GM4XqrwHnWXNOWMbloTmrYXZg10cakYGmpfsR/bbzQ6JAJI4ihuyADKLnBgrCe" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body class="login-page">
-    <div class="box">
-        <div class="card shadow-sm">
-            <div class="card-body">
-                <h3 class="judul text-center fw-bold">LOGIN</h3>
-                <?php if ($pesan != "") { ?>
-                    <p class="error text-center"><?php echo $pesan; ?></p>
-                <?php } ?>
-                <form action="login.php" method="POST">
-                    <div class="mb-3">
-                        <input type="text" class="form-control" name="username" placeholder="Username" required>
-                    </div>
-                    <div class="mb-3">
-                        <input type="password" class="form-control" name="password" placeholder="Password" required>
-                    </div>
-                    <button type="submit" class="btn w-100">Login</button>
-                    <p class="text-center mt-3">
-                        <a href="register.php" class="linkLog">Belum punya akun? Daftar</a>
+<div class="box">
+    <div class="row justify-content-center mt-4">
+            <div class="col-md-5">
+                <div class="card shadow-sm">
+                    <div class="card-body p-4">
+                    <h2 class="judul fw-bold text-center mt-4 mb-4">LOGIN</h2>
+                    <?php if($pesan != ""){ ?>
+                        <div class="alert alert-danger">
+                            <?php echo $pesan; ?>
+                        </div>
+                        <?php } ?>
+                    <form action="login.php" method="post">
+                        <div class="mb-3">
+                            <input class="form-control" type="text" name="username" placeholder="Username" required>
+                        </div>
+                        <div class="mb-3">
+                            <input class="form-control" type="password" name="password" placeholder="Password" required>
+                        </div>
+                        <button class="btn w-100" type="submit" name="login">Login</button>
+                    </form>
+                    <p class="text-center">
+                        <a class="linkLog" href="register.php">Belum punya akun? Daftar</a>
                     </p>
-                </form>
+                </div>
             </div>
         </div>
-    </div>
+    </div>    
+</div>
 </body>
 </html>
