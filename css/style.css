@@ -232,40 +232,51 @@ select:focus{
 .login-page .card-body {
     padding: 35px 36px 25px;
 }
-
-html, body{
-    overflow-x: hidden;
+.form-page {
+    min-height: 100vh;
+    padding-bottom: 40px;
+    background: linear-gradient(to bottom right, #809dc4, #e5ece4);
+    background-attachment: fixed;
 }
-*, *::before, *::after{
-    box-sizing: border-box;
-}
-label, .form-label{
-    color: #3d537b;
-    font-weight: 600;
-    font-size: 14px;
-    margin-bottom: 6px;
-}
-.card{
+.form-page .card {
     background-color: #f2f6fc;
     border: none;
     border-radius: 14px;
     box-shadow: 0 6px 20px rgba(61, 83, 123, 0.15);
 }
-.form-control{
+.form-page .card-body {
+    padding: 30px;
+}
+.form-page .judul {
+    text-align: center;
+    font-weight: bold;
+    font-size: 22px;
+    margin-bottom: 20px;
+    margin-top: 0;
+    color: #3d537b;
+}
+.form-page label,
+.form-page .form-label {
+    color: #3d537b;
+    font-weight: 600;
+    font-size: 14px;
+    margin-bottom: 6px;
+}
+.form-page .form-control {
     border: 1px solid #c9d3e6;
     border-radius: 8px;
     background-color: #ffffff;
     color: #3d537b;
 }
-.form-control:focus{
+.form-page .form-control:focus {
     border-color: #809dc4;
     box-shadow: 0 0 0 0.2rem rgba(128, 157, 196, 0.25);
 }
-.form-control:disabled{
+.form-page .form-control:disabled {
     background-color: #e5ece4;
     color: #6b7280;
 }
-.form-select{
+.form-page .form-select {
     background-color: #ffffff;
     color: #3d537b;
     border: 1px solid #c9d3e6;
@@ -274,142 +285,100 @@ label, .form-label{
     padding: .5rem 2.25rem .5rem .75rem;
     font-size: 15px;
 }
-
-.btn-secondary{
+.form-page .btn {
+    min-height: 44px;
+    border: none;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.form-page .btn-success {
+    background-color: #6882a4;
+    border-color: #6882a4;
+    color: #ffffff;
+}
+.form-page .btn-success:hover {
+    background-color: #6882a4;
+    border-color: #6882a4;
+    color: #ffffff;
+}
+.form-page .btn-secondary {
     background-color: #9aa5b8;
     border-color: #9aa5b8;
 }
-.btn-secondary:hover{
+.form-page .btn-secondary:hover {
     background-color: #8693a8;
+    border-color: #8693a8;
 }
-.btn-warning{
-    background-color: #d9a441;
-    border-color: #d9a441;
+.form-page img {
+    border: 2px solid #aeb5c4;
 }
-.btn-warning:hover{
-    background-color: #c4912f;
-}
-.btn-danger{
-    background-color: #c85c5c;
-    border-color: #c85c5c;
-}
-.btn-danger:hover{
-    background-color: #b04a4a;
-}
-
-.alert-danger{
+.form-page .alert-danger {
     background-color: #f8e3e3;
     border: none;
     color: #8a3b3b;
     border-radius: 8px;
 }
-.alert-info{
+.profile-page {
+    min-height: 100vh;
+    background: linear-gradient(to bottom right, #809dc4, #e5ece4);
+    background-attachment: fixed;
+}
+.profile-page .card {
+    background-color: #f2f6fc;
+    border: none;
+    border-radius: 14px;
+    box-shadow: 0 6px 20px rgba(61, 83, 123, 0.15);
+}
+.profile-page .card-body {
+    padding: 30px;
+}
+.profile-page h4 {
+    color: #3d537b;
+}
+.profile-page label,
+.profile-page .form-label {
+    color: #3d537b;
+    font-weight: 600;
+    font-size: 14px;
+    margin-bottom: 6px;
+}
+.profile-page .form-control {
+    border: 1px solid #c9d3e6;
+    border-radius: 8px;
+    background-color: #ffffff;
+    color: #3d537b;
+}
+.profile-page .form-control:focus {
+    border-color: #809dc4;
+    box-shadow: 0 0 0 0.2rem rgba(128, 157, 196, 0.25);
+}
+.profile-page .form-control:disabled {
+    background-color: #e5ece4;
+    color: #6b7280;
+}
+.profile-page .btn-success {
+    background-color: #6882a4;
+    border-color: #6882a4;
+    color: #ffffff;
+}
+.profile-page .btn-success:hover {
+    background-color: #6882a4;
+    border-color: #6882a4;
+    color: #ffffff;
+}
+.profile-page .btn-secondary {
+    background-color: #9aa5b8;
+    border-color: #9aa5b8;
+}
+.profile-page .btn-secondary:hover {
+    background-color: #8693a8;
+    border-color: #8693a8;
+}
+.profile-page .alert-info {
     background-color: #e3ecf8;
     border: none;
     color: #3d537b;
     border-radius: 8px;
-}
-
-.login-page .box{
-    margin-top: 60px;
-}
-.login-page .card{
-    background-color: #ffffff;
-}
-.login-page h3.judul{
-    font-size: 30px;
-    letter-spacing: 1px;
-}
-.login-page .btn{
-    min-height: 44px;
-    font-size: 16px;
-    border-radius: 8px;
-    border: none;
-}
-.login-page .error{
-    background-color: #f8e3e3;
-    color: #8a3b3b;
-    padding: 8px 12px;
-    border-radius: 8px;
-    font-size: 14px;
-    margin-bottom: 15px;
-}
-
-.confirm-page{
-    align-items: center;
-    padding-top: 0;
-}
-.confirm-box .card{
-    background-color: #ffffff;
-    box-shadow: 0 8px 24px rgba(61, 83, 123, 0.2);
-}
-.confirm-box .judul{
-    font-size: 26px;
-}
-.confirm-text{
-    font-size: 15px;
-}
-.confirm-buttons{
-    margin-top: 15px;
-}
-.confirm-btn{
-    min-height: 44px;
-    padding: 10px;
-    font-size: 15px;
-    border: none;
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.form-page{
-    min-height: 100vh;
-    padding-bottom: 40px;
-    background: linear-gradient(to bottom right, #809dc4, #e5ece4);
-    background-attachment: fixed;
-}
-.form-page .card-body{
-    padding: 30px;
-}
-.form-page .judul{
-    text-align: center;
-    font-weight: bold;
-    font-size: 22px;
-}
-.form-page .btn{
-    min-height: 44px;
-    border: none;
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.form-page img{
-    border: 2px solid #aeb5c4;
-}
-
-.dashboard-page .box{
-    margin-top: 10px;
-}
-.dashboard-page .box .card-body{
-    padding: 30px;
-}
-.dashboard-page .box .btn{
-    min-height: 44px;
-    border: none;
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.pegawai-card .btn-sm{
-    border: none;
-    border-radius: 6px;
-    padding: 4px 12px;
-}
-.info-pegawai p{
-    margin-bottom: 6px;
-    color: #3d537b;
 }
