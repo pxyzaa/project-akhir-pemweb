@@ -1,5 +1,6 @@
 <?php
 include 'cek_login.php';
+include 'config.php';
 
 $id = (int) $_SESSION['id_user'];
 $pesan = "";
@@ -38,20 +39,10 @@ $user = mysqli_fetch_assoc(mysqli_stmt_get_result($stmt));
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/style.css">
     <title>Profil</title>
 </head>
-<body>
-<nav class="navbar navbar-dark bg-primary px-3">
-    <div>
-        <a class="text-white text-decoration-none me-3" href="dashboard.php">Dashboard</a>
-        <a class="text-white text-decoration-none" href="profil.php">Profil</a>
-    </div>
-    <div class="text-white">
-        Halo, <b><?php echo htmlspecialchars($_SESSION['nama']); ?></b> |
-        <a class="text-white" href="logout.php">Logout</a>
-    </div>
-</nav>
+<body class="profile-page">
 
 <main class="container py-4">
     <div class="row justify-content-center">
