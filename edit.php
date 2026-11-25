@@ -131,8 +131,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                                 <label class="form-label">Nama</label>
                                 <input type="text"
                                 class="form-control"
-                                name="nama"
-                                value="<?php echo htmlspecialchars($data['nama']); ?>"
+                                name="nama_pegawai"
+                                value="<?php echo htmlspecialchars($data['nama_pegawai']); ?>"
                                 required>
                             </div>
                             <div class="mb-3">
@@ -151,7 +151,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                                 <label class="form-label">Email</label>
                                 <input type="email"
                                 class="form-control"
-                                name="nama"
+                                name="email"
                                 value="<?php echo htmlspecialchars($data['email']); ?>"
                                 required>
                             </div>
