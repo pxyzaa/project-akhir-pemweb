@@ -121,7 +121,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             <button type="submit" class="btn btn-success w-100">
                                 Tambah Pegawai
                             </button>
-                            <a href="dashboard.php" class="btn back-btn btn-secondary w-100 mt-2">
+                            <a href="atur.php" class="btn back-btn btn-secondary w-100 mt-2">
                                 Kembali
                             </a>
                          </form>
