@@ -126,6 +126,12 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                                 <img src="uploads/<?php echo htmlspecialchars($data['foto']); ?>" 
                                 alt="Current Photo"
                                 style="width: 80px; height: 80px; object-fit: cover; border-radius: 50%;">
+                                <br><br>
+                                <label class="form-label">Ganti Foto (Opsional)</label>
+                                <input type="file"
+                                class="form-control"
+                                name="foto"
+                                accept=".jpg,.jpeg,.png,.webp,.gif">
                             </div>
                             <div class="mb-3">
                                 <label class="form-label">Nama</label>
