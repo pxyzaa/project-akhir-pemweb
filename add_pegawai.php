@@ -39,7 +39,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                 mysqli_stmt_bind_param($stmt, "ssiss", $nama_pegawai, $fileBaru, $id_jabatan, $email, $tgl_masuk);
 
                 if(mysqli_stmt_execute($stmt)){
-                    header("location:dashboard.php");
+                    header("location:atur.php");
                     exit;
                 } else{
                     unlink($lokasi);
