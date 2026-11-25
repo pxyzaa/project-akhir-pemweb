@@ -15,7 +15,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
         if($data['foto'] != "" && file_exists($file)){
             unlink($file);
         }
-        $delete = mysqli_prepare($conf, "DELETE FROM pegawai WHERE id = ?");
+        $delete = mysqli_prepare($conf, "DELETE FROM pegawai WHERE id_pegawai = ?");
         mysqli_stmt_bind_param($delete, "i", $id);
         mysqli_stmt_execute($delete);
         mysqli_stmt_close($delete);
